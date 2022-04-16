@@ -22,7 +22,7 @@
             
             String username, url, password, driver;
             
-            url = "jdbc:mysql://localhost/alumnos";
+            url = "jdbc:mysql://localhost/Alumnu";
             username= "root";
             password = "n0m3l0";
             
@@ -34,24 +34,25 @@
                 con = DriverManager.getConnection(url, username, password);
                 
                 try{
-                    String nom, appat, apmat, grup;
-                    int bol;
+                    String nombre, appat, apmat, grupo;
+                    int boleta, pass2;
                     
-                    nom = request.getParameter("nombre");
+                    nombre = request.getParameter("nombre");
                     appat = request.getParameter("appat");
                     apmat = request.getParameter("apmat");
-                    grup = request.getParameter("grup");
-                    bol = Integer.parseInt(request.getParameter("bol"));
-                    
+                    grupo = request.getParameter("grupo");
+                    boleta = Integer.parseInt(request.getParameter("boleta"));
+                    pass2=Integer.parseInt(request.getParameter("pass2"));
                     set = con.createStatement();
                     
-                    String q = "insert into alumnobatiz "
-                            + "values ("+bol+", '"+nom+"', '"+appat+"', '"+apmat+"', '"+grup+"')";
+                    String q = "insert into alumnos "
+                            + "values ("+boleta+", '"+nombre+"', '"+appat+"', '"+apmat+"', '"+grupo+"','"+pass2+"')";
                     
                     int registro = set.executeUpdate(q);
                     
                     %>
-                    <h1>Registro Exitoso</h1>
+                    <h1>Registro Exitoso
+                        <a href="home.html">Ir a Home</a> </h1>
                     <%
                 
                 }catch(SQLException es){
