@@ -25,6 +25,104 @@
     <p><a href="iniciosesion.html">¿Ya tengo Cuenta?</a></p>
   </section>
 </form>
+   <script>
+const form = document.getElementById('form');
+const nombre = document.getElementById('nombre');
+const boltea = document.getElementById('boleta');
+const appat = document.getElementById('appat');
+const apmat = document.getElementById('apmat');
+const pass1 = document.getElementById('pass1');
+const pass2 = document.getElementById('pass2');
+
+form.addEventListener('submit', e => {
+	e.preventDefault();
+	
+	checkInputs();
+});
+
+function checkInputs() {
+	const nombreValue = nombre.value.trim();
+	const boletaValue= boleta.value.trim();
+	const appatValue= appat.value.trim();
+	const apmatValue= apmat.value.trim();
+	const pass1Value = pass1.value.trim();
+	const pass2Value = pass2.value.trim();
+	
+	if(nombreValue === '') {
+		setErrorFor(nombre, 'No puede dejar el usuairo en blanco');
+	} else {
+		setSuccessFor(nombre);
+	}
+
+	
+	if(boletaValue === '') {
+		setErrorFor(boleta, 'No puede dejar el usuairo en blanco');
+	} else {
+		setSuccessFor(boleta);
+	}
+
+
+	if(appatValue === '') {
+		setErrorFor(appat, 'No puede dejar el usuairo en blanco');
+	} else {
+		setSuccessFor(appat);
+	}
+
+
+	if(apmatValue === '') {
+		setErrorFor(apmat, 'No puede dejar el usuairo en blanco');
+	} else {
+		setSuccessFor(apmat);
+	}
+
+	
+	if(pass1Value === '') {
+		setErrorFor(pass1, 'Password no debe ingresar en blanco.');
+	} else {
+		setSuccessFor(pass1);
+	}
+	
+	if(pass2Value === '') {
+		setErrorFor(pass2, 'Password2 no debe ngresar en blanco');
+	} else if(passwordValue !== pass2Value) {
+		setErrorFor(pass2, 'Passwords no coinciden');
+	} else{
+		setSuccessFor(pass2);
+	}
+}
+
+if(formulario.nombre.value.length < 5){
+	alert("Escriba por lo menos 5 Caracteres para el nombre");
+	formulario.nombre.focus();
+	return false;
+}
+
+var checkOK = "QWERTYUIOPASDFGHJKLZXCVBNMÑ"
++"qwertyuiopasdfghjklñzxcvbnm";
+
+var checkStr = formulario.nombre.value;
+
+var allValido = true;
+
+for(var i = 0; i < checkStr.length; i++){
+	var ch = checkStr.charAt(i);
+	for(var j = 0; j < checkOK.length; j++){
+		if(ch == checkOK.charAt(j))
+		break;
+	}
+	if(j == checkOK.length){
+		allValido = false;
+		break;
+	}
+}
+
+if(!allValido){
+	alert("Escriba unicamente letras en el campo de nombre");
+	formulario.nombre.focus();
+	return false;
+}
+</script>
+  
 </body>
 </html>
 
