@@ -15,15 +15,29 @@
         pst.setString(1, boleta);
         pst.setString(2, pass2);
         ResultSet rs = pst.executeQuery();                        
-        if(rs.next())           
-           out.println("Valid login credentials");        
-        else
-           out.println("Invalid login credentials");            
+       if(rs.next()){           
+           out.println("Valid login credentials");  
+        %>
+        <p><a href="home.html">Ir a home</a></p>
+        <%
+            }
+        else{
+           out.println("Invalid login credentials");}            
    }
+  
+    
+   
    catch(Exception e){       
+    
        out.println("Something went wrong !! Please try again");       
-   }      
+
+       %>
+       <p> <a href="index.html"> Ir a index</a></p>
+       <%
+   }  
+
 %>
-<p> <a href="home.html"> Ir a home</a></p>
+ 
+
 
 </html>
