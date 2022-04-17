@@ -56,11 +56,12 @@
                     <%
                 
                 }catch(SQLException es){
-                    System.out.println("Error al registrar en la tabla");
+                    System.out.println("Error al registrar ");
                     System.out.println(es.getMessage());
                     %>
-                    <h1>No se pudo registrar en la tabla</h1>
+                    <h1>No se pudo registrar </h1>
                     <%
+                
                 
                 }
             }catch(Exception e){
