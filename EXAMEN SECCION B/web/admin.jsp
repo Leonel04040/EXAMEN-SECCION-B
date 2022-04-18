@@ -12,7 +12,7 @@
         String pass2 = request.getParameter("pass2");
         Class.forName("com.mysql.jdbc.Driver");  // MySQL database connection
         Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/javademo?" + "user=root&password=");    
-        PreparedStatement pst = conn.prepareStatement("Select pass from alumnos where pass=?");
+        PreparedStatement pst = conn.prepareStatement("Select pass2 from alumnos where pass=?");
         
         pst.setString(1, pass2);
         ResultSet rs = pst.executeQuery();                        
